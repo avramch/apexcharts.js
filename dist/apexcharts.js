@@ -1,6 +1,6 @@
 /*!
  * ApexCharts v3.38.0
- * (c) 2018-2023 ApexCharts
+ * (c) 2018-2024 ApexCharts
  * Released under the MIT License.
  */
 (function (global, factory) {
@@ -32277,8 +32277,16 @@
           me.annotations.drawImageAnnos();
           me.annotations.drawTextAnnos();
 
-          if (w.config.grid.position === 'back' && elgrid) {
-            w.globals.dom.elGraphical.add(elgrid.el);
+          if (w.config.grid.position === 'back') {
+            var _elgrid$elGridBorders;
+
+            if (elgrid) {
+              w.globals.dom.elGraphical.add(elgrid.el);
+            }
+
+            if (elgrid !== null && elgrid !== void 0 && (_elgrid$elGridBorders = elgrid.elGridBorders) !== null && _elgrid$elGridBorders !== void 0 && _elgrid$elGridBorders.node) {
+              w.globals.dom.elGraphical.add(elgrid.elGridBorders);
+            }
           }
 
           if (Array.isArray(graphData.elGraph)) {
@@ -32289,12 +32297,16 @@
             w.globals.dom.elGraphical.add(graphData.elGraph);
           }
 
-          if (w.config.grid.position === 'front' && elgrid) {
-            w.globals.dom.elGraphical.add(elgrid.el);
-          }
+          if (w.config.grid.position === 'front') {
+            var _elgrid$elGridBorders2;
 
-          if (elgrid && elgrid.elGridBorders && elgrid.elGridBorders.node) {
-            w.globals.dom.elGraphical.add(elgrid.elGridBorders);
+            if (elgrid) {
+              w.globals.dom.elGraphical.add(elgrid.el);
+            }
+
+            if (elgrid !== null && elgrid !== void 0 && (_elgrid$elGridBorders2 = elgrid.elGridBorders) !== null && _elgrid$elGridBorders2 !== void 0 && _elgrid$elGridBorders2.node) {
+              w.globals.dom.elGraphical.add(elgrid.elGridBorders);
+            }
           }
 
           if (w.config.xaxis.crosshairs.position === 'front') {
